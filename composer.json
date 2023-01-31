@@ -1,0 +1,25 @@
+{
+    "name": "linksderisar/livemail",
+    "description": "Database mail driver for Laravel",
+    "require": {
+        "livewire/livewire": "^2.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Linksderisar\\Livemail\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alexandru-mm",
+            "email": "contact@alexandrumuresan.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Linksderisar\\Livemail\\LivemailServiceProvider"
+            ]
+        }
+    }
+}

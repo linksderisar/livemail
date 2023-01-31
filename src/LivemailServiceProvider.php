@@ -1,0 +1,45 @@
+<?php
+
+namespace Linksderisar\Livemail;
+
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Mail;
+use \Illuminate\Support\ServiceProvider;
+use Linksderisar\Livemail\Http\Livewire\Livemail;
+use Livewire\Livewire;
+
+class LivemailServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        config([
+            'mail.mailers.livemail' => ['transport' => 'livemail']
+        ]);
+
+        $this->loadRoutesFrom(__DIR__ . '/routes/livemail.php');
+        $this->loadMigrationsFrom(__DIR__ . '/migrations/');
+        $this->loadViewsFrom(__DIR__ . '/views', 'livemail');
+
+        Livewire::component('linksderisar::livemail', Livemail::class);
+
+        Mail::extend('livemail', function (array $config = []) {
+            return new LiveMailTransport();
+        });
+        Paginator::useBootstrapFive();
+    }
+}

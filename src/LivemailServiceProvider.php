@@ -39,6 +39,5 @@ class LivemailServiceProvider extends ServiceProvider
         Mail::extend('livemail', function (array $config = []) {
             return new LiveMailTransport();
         });
-        Paginator::useBootstrapFive();
     }
 }

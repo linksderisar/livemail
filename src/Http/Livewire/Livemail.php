@@ -2,7 +2,6 @@
 
 namespace Linksderisar\Livemail\Http\Livewire;
 
-use Illuminate\Support\Collection;
 use Linksderisar\Livemail\Models\Livemail as LivemailModel;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,6 +11,7 @@ class Livemail extends Component
     use WithPagination;
 
     public int $mailId;
+
     public LivemailModel $mailModel;
 
     public function mount()
@@ -20,12 +20,8 @@ class Livemail extends Component
             $this->mailId = LivemailModel::orderBy('id', 'desc')->take(1)->pluck('id')->first();
 
             $this->mailModel = LivemailModel::findOrFail($this->mailId);
-
-        }catch (\Exception $exception) {
-
+        } catch (\Exception $exception) {
         }
-
-
     }
 
     public function render()
@@ -33,7 +29,7 @@ class Livemail extends Component
         return view('livemail::livewire.livemail', [
             'mails' => LivemailModel::orderBy('id', 'desc')
                 ->select(['id', 'to', 'cc', 'bcc', 'subject', 'read', 'created_at'])
-                ->paginate(30)
+                ->paginate(30),
         ]);
     }
 

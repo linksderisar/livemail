@@ -4,7 +4,7 @@ namespace Linksderisar\Livemail;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Mail;
-use \Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use Linksderisar\Livemail\Http\Livewire\Livemail;
 use Livewire\Livewire;
 
@@ -17,7 +17,6 @@ class LivemailServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
     }
 
     /**
@@ -28,12 +27,12 @@ class LivemailServiceProvider extends ServiceProvider
     public function boot()
     {
         config([
-            'mail.mailers.livemail' => ['transport' => 'livemail']
+            'mail.mailers.livemail' => ['transport' => 'livemail'],
         ]);
 
-        $this->loadRoutesFrom(__DIR__ . '/routes/livemail.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/');
-        $this->loadViewsFrom(__DIR__ . '/views', 'livemail');
+        $this->loadRoutesFrom(__DIR__.'/routes/livemail.php');
+        $this->loadMigrationsFrom(__DIR__.'/migrations/');
+        $this->loadViewsFrom(__DIR__.'/views', 'livemail');
 
         Livewire::component('linksderisar::livemail', Livemail::class);
 

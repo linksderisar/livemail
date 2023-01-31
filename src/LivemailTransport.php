@@ -8,7 +8,6 @@ use Symfony\Component\Mailer\Transport\AbstractTransport;
 
 class LivemailTransport extends AbstractTransport
 {
-
     protected function doSend(SentMessage $message): void
     {
         /*--------------------------------------------------------------------------------------------------------------
@@ -39,8 +38,7 @@ class LivemailTransport extends AbstractTransport
         /**
          * @var $toArray \Symfony\Component\Mime\Address
          */
-        foreach ($message->getTo() as $toArray)
-        {
+        foreach ($message->getTo() as $toArray) {
             $to[] = $toArray->getAddress();
         }
 
@@ -54,8 +52,7 @@ class LivemailTransport extends AbstractTransport
         /**
          * @var $ccArray \Symfony\Component\Mime\Address
          */
-        foreach ($message->getCc() as $ccArray)
-        {
+        foreach ($message->getCc() as $ccArray) {
             $cc[] = $ccArray->getAddress();
         }
 
@@ -69,8 +66,7 @@ class LivemailTransport extends AbstractTransport
         /**
          * @var $bccArray \Symfony\Component\Mime\Address
          */
-        foreach ($message->getCc() as $bccArray)
-        {
+        foreach ($message->getCc() as $bccArray) {
             $bcc[] = $bccArray->getAddress();
         }
 
@@ -82,11 +78,9 @@ class LivemailTransport extends AbstractTransport
         /**
          * @var \Symfony\Component\Mime\Part\DataPart $attachment
          */
-        foreach ($message->getAttachments() as $attachment)
-        {
+        foreach ($message->getAttachments() as $attachment) {
             // ??????
         }
-
 
         Livemail::create([
             'subject' => $message->getSubject(),

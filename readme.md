@@ -19,8 +19,7 @@ Finally, change `MAIL_MAILER` to `livemail` in your `.env` file:
 ```
 MAIL_MAILER=livemail
 ```
-
-![image](https://user-images.githubusercontent.com/32777386/215848599-30c78f0c-e432-4f2e-924f-e50b9e93a599.png)
+![image](https://user-images.githubusercontent.com/32777386/215849047-51228aa6-5919-4e8a-ba88-bc5d2ad12baf.png)
 
 
 ### TODO

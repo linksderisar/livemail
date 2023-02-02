@@ -10,9 +10,9 @@ class Livemail extends Component
 {
     use WithPagination;
 
-    public int $mailId;
+    public $mailId;
 
-    public LivemailModel $mailModel;
+    public $mailModel;
 
     public function mount()
     {

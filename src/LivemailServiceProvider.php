@@ -2,7 +2,6 @@
 
 namespace Linksderisar\Livemail;
 
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\ServiceProvider;
 use Linksderisar\Livemail\Http\Livewire\Livemail;
@@ -37,7 +36,7 @@ class LivemailServiceProvider extends ServiceProvider
         Livewire::component('linksderisar::livemail', Livemail::class);
 
         Mail::extend('livemail', function (array $config = []) {
-            return new LiveMailTransport();
+            return new \Linksderisar\Livemail\LiveMailTransport();
         });
     }
 }

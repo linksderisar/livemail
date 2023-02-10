@@ -25,15 +25,16 @@ class LivemailServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        config([
-            'mail.mailers.livemail' => ['transport' => 'livemail'],
-        ]);
-
         $this->loadRoutesFrom(__DIR__.'/routes/livemail.php');
         $this->loadMigrationsFrom(__DIR__.'/migrations/');
         $this->loadViewsFrom(__DIR__.'/views', 'livemail');
 
+        //
         Livewire::component('linksderisar::livemail', Livemail::class);
+
+        config([
+            'mail.mailers.livemail' => ['transport' => 'livemail'],
+        ]);
 
         Mail::extend('livemail', function (array $config = []) {
             return new LiveMailTransport();

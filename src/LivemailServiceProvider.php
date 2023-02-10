@@ -36,7 +36,7 @@ class LivemailServiceProvider extends ServiceProvider
         Livewire::component('linksderisar::livemail', Livemail::class);
 
         Mail::extend('livemail', function (array $config = []) {
-            return new \Linksderisar\Livemail\LiveMailTransport();
+            return new LiveMailTransport();
         });
     }
 }

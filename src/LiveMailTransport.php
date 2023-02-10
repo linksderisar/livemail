@@ -6,7 +6,7 @@ use Linksderisar\Livemail\Models\Livemail;
 use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Transport\AbstractTransport;
 
-class LivemailTransport extends AbstractTransport
+class LiveMailTransport extends AbstractTransport
 {
     protected function doSend(SentMessage $message): void
     {
